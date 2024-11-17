@@ -1,28 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coin Flip</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigged Coin Flip</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="container">
-    <!-- Text input to change the text above the coin -->
-    <input type="text" id="text-input" placeholder="Enter text above the coin" />
-
-    <!-- Text to display above the coin -->
-    <div id="text-above-coin">Coin Flip Game</div>
-
-    <!-- Coin container -->
-    <div id="coin-container">
-      <div id="coin">
-        <div class="side head">Heads</div>
-        <div class="side tail">Tails</div>
-      </div>
+    <div class="container">
+        <h1>Rigged Coin Flip</h1>
+        <div class="coin" id="coin">
+            <div class="side heads">Heads</div>
+            <div class="side tails">Tails</div>
+        </div>
+        <p id="result"></p>
     </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
