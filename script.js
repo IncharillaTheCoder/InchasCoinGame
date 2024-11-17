@@ -2,8 +2,8 @@ document.addEventListener("keydown", function(event) {
     var coin = document.getElementById("coin");
     var result = document.getElementById("result");
 
-    coin.style.transition = "transform 3s";
-    coin.style.transform = "rotateY(360deg)";
+    coin.style.transition = "transform 4s linear";
+    coin.style.transform = "rotateY(1440deg)"; // 1440deg to rotate continuously for 4 seconds
 
     setTimeout(function() {
         if (event.key === "h" || event.key === "H") {
@@ -14,5 +14,5 @@ document.addEventListener("keydown", function(event) {
             result.innerHTML = "Tails";
         }
         coin.style.transition = "";
-    }, 3000);
+    }, 4000);
 });
