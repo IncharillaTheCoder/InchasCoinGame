@@ -23,8 +23,7 @@ body {
     position: relative;
     margin: 20px auto;
     transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    transition: transform 1s;
+    transition: transform 3s;
 }
 
 .side {
@@ -33,7 +32,7 @@ body {
     position: absolute;
     backface-visibility: hidden;
     border-radius: 50%;
-    background: radial-gradient(circle, #f0f0f0, #bfbfbf, #7f7f7f);
+    background-color: #404040;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,12 +42,10 @@ body {
 
 .heads {
     transform: rotateY(0deg);
-    background: radial-gradient(circle, #ffffff, #bfbfbf, #7f7f7f);
 }
 
 .tails {
     transform: rotateY(180deg);
-    background: radial-gradient(circle, #7f7f7f, #4f4f4f, #000000);
 }
 
 button {
