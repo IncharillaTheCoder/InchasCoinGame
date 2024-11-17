@@ -1,86 +1,64 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #121212;
-  color: white;
-  overflow: hidden;
-  flex-direction: column;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
-#container {
-  text-align: center;
+.container {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-#text-input {
-  font-size: 1.2rem;
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: #333;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  width: 300px;
-}
-
-#text-above-coin {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
-#coin-container {
-  perspective: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#coin {
-  width: 150px;
-  height: 150px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+.coin {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    margin: 20px auto;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 1s;
 }
 
 .side {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  background-color: #333;
-  border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
 }
 
-.head {
-  background-color: #a1a1a1; /* Gold for heads */
-  color: white;
+.heads {
+    background-color: #007bff;
 }
 
-.tail {
-  background-color: #a1a1a1; /* Silver for tails */
-  color: white;
-  transform: rotateY(180deg); /* Rotate Tails to opposite side */
+.tails {
+    background-color: #ff5733;
+    transform: rotateY(180deg);
 }
 
-@keyframes spin {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(3600deg); /* This spins the coin multiple times */
-  }
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
