@@ -10,6 +10,7 @@ document.addEventListener("keydown", (event) => {
     setTimeout(() => {
       coin.style.animation = "none";  // Remove the spin animation
 
+      // Rotate the coin to show heads or tails
       if (event.key.toLowerCase() === "h") {
         // Force the coin to land on heads
         coin.style.transform = `rotateY(3600deg)`;  // 10 full spins for heads
