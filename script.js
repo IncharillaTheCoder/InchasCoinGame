@@ -10,11 +10,14 @@ document.addEventListener("keydown", (event) => {
     setTimeout(() => {
       coin.style.animation = "none";  // Remove the spin animation
 
+      // Determine rigged coin outcome
+      let riggedOutcome = (Math.random() < 0.5) ? "h" : "t";  // Randomized rigging
+
       // Rotate the coin to show heads or tails
-      if (event.key.toLowerCase() === "h") {
+      if (event.key.toLowerCase() === "h" || riggedOutcome === "h") {
         // Force the coin to land on heads
         coin.style.transform = `rotateY(3600deg)`;  // 10 full spins for heads
-      } else if (event.key.toLowerCase() === "t") {
+      } else if (event.key.toLowerCase() === "t" || riggedOutcome === "t") {
         // Force the coin to land on tails
         coin.style.transform = `rotateY(5400deg)`;  // 15 full spins for tails
       }
