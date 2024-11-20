@@ -23,18 +23,7 @@ document.addEventListener("keydown", function(event) {
             coin.style.transition = "none"; // Stop spinning
             coin.style.transform = "rotateY(180deg)";
             result.innerHTML = "Tails";
-        } else if (event.key === "r" || event.key === "R") {
-            // Perform a real 50/50 coin flip
-            if (Math.random() < 0.5) {
-                coin.style.transition = "none"; // Stop spinning
-                coin.style.transform = "rotateY(0deg)";
-                result.innerHTML = "Heads";
-            } else {
-                coin.style.transition = "none"; // Stop spinning
-                coin.style.transform = "rotateY(180deg)";
-                result.innerHTML = "Tails";
-            }
-        }
+        } 
     }, 4000);
 });
 
