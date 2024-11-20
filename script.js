@@ -9,22 +9,23 @@ document.addEventListener("keydown", function(event) {
         titleInput.focus();
     }
 
-    coin.style.transition = "transform 4s linear";
-    coin.style.transform = "rotateY(1440deg)"; // Rotate for 4 seconds
+    if (event.key === "h" || event.key === "H" || event.key === "t" || event.key === "T") {
+        coin.style.transition = "transform 4s linear";
+        coin.style.transform = "rotateY(1440deg)"; // Rotate for 4 seconds
 
-    result.innerHTML = ""; // Clear result until coin stops spinning
+        result.innerHTML = ""; // Clear result until coin stops spinning
 
-    setTimeout(function() {
-        if (event.key === "h" || event.key === "H") {
+        setTimeout(function() {
             coin.style.transition = "none"; // Stop spinning
-            coin.style.transform = "rotateY(0deg)";
-            result.innerHTML = "Heads";
-        } else if (event.key === "t" || event.key === "T") {
-            coin.style.transition = "none"; // Stop spinning
-            coin.style.transform = "rotateY(180deg)";
-            result.innerHTML = "Tails";
-        } 
-    }, 4000);
+            if (event.key === "h" || event.key === "H") {
+                coin.style.transform = "rotateY(0deg)";
+                result.innerHTML = "Heads";
+            } else if (event.key === "t" || event.key === "T") {
+                coin.style.transform = "rotateY(180deg)";
+                result.innerHTML = "Tails";
+            }
+        }, 4000);
+    }
 });
 
 document.getElementById("titleInput").addEventListener("change", function() {
