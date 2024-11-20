@@ -1,9 +1,16 @@
 document.addEventListener("keydown", function(event) {
     var coin = document.getElementById("coin");
     var result = document.getElementById("result");
+    var titleInput = document.getElementById("titleInput");
+    var title = document.getElementById("title");
+
+    if (event.key === "e" || event.key === "E") {
+        titleInput.style.display = "block";
+        titleInput.focus();
+    }
 
     coin.style.transition = "transform 4s linear";
-    coin.style.transform = "rotateY(1440deg)"; // 1440deg to rotate continuously for 4 seconds
+    coin.style.transform = "rotateY(1440deg)"; // Rotate for 4 seconds
 
     result.innerHTML = ""; // Clear result until coin stops spinning
 
@@ -16,6 +23,23 @@ document.addEventListener("keydown", function(event) {
             coin.style.transition = "none"; // Stop spinning
             coin.style.transform = "rotateY(180deg)";
             result.innerHTML = "Tails";
+        } else if (event.key === "r" || event.key === "R") {
+            // Perform a real 50/50 coin flip
+            if (Math.random() < 0.5) {
+                coin.style.transition = "none"; // Stop spinning
+                coin.style.transform = "rotateY(0deg)";
+                result.innerHTML = "Heads";
+            } else {
+                coin.style.transition = "none"; // Stop spinning
+                coin.style.transform = "rotateY(180deg)";
+                result.innerHTML = "Tails";
+            }
         }
     }, 4000);
+});
+
+document.getElementById("titleInput").addEventListener("change", function() {
+    var title = document.getElementById("title");
+    title.textContent = this.value;
+    this.style.display = "none";
 });
