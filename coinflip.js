@@ -10,7 +10,7 @@ document.addEventListener("keydown", function(event) {
     }
 
     if (event.key === "h" || event.key === "H" || event.key === "t" || event.key === "T") {
-        coin.style.transition = "transform 4s cubic-bezier(0.25, 1, 0.5, 1)";
+        coin.style.transition = "transform 4s linear";
         coin.style.transform = "rotateY(1440deg)"; // Rotate for 4 seconds
 
         result.innerHTML = ""; // Clear result until coin stops spinning
@@ -28,7 +28,7 @@ document.addEventListener("keydown", function(event) {
     }
 
     if (event.key === "r" || event.key === "R") {
-        coin.style.transition = "transform 4s cubic-bezier(0.25, 1, 0.5, 1)";
+        coin.style.transition = "transform 4s linear";
         coin.style.transform = "rotateY(1440deg)"; // Rotate for 4 seconds
 
         result.innerHTML = ""; // Clear result until coin stops spinning
