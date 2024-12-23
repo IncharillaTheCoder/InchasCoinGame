@@ -3,59 +3,44 @@ document.addEventListener("keydown", function(event) {
     var result = document.getElementById("result");
     var titleInput = document.getElementById("titleInput");
     var title = document.getElementById("title");
-    var rotations = 0;
-    var interval;
 
     if (event.key === "e" || event.key === "E") {
         titleInput.style.display = "block";
         titleInput.focus();
     }
 
-    if (event.key === "h" || event.key === "H" || event.key === "t" || event.key === "T" || event.key === "r" || event.key === "R") {
-        clearInterval(interval);
+    if (event.key === "h" || event.key === "H" || event.key === "t" || event.key === "T") {
+        coin.style.transition = "transform 4s ease-out";
+        var finalRotation = (event.key === "h" || event.key === "H") ? 1440 : 1620;
+        coin.style.transform = "rotateY(" + finalRotation + "deg)"; // Rotate for 4 seconds
+
         result.innerHTML = ""; // Clear result until coin stops spinning
-        coin.style.transition = "none"; // Disable transition during manual rotation
-        var start = Date.now();
-        var duration = 4000; // Duration of the spin in milliseconds
 
-        interval = setInterval(function() {
-            var timePassed = Date.now() - start;
-            rotations = Math.floor(timePassed / 50);
-            var progress = timePassed / duration;
-
-            // Apply easing (easeOutQuad)
-            var easedProgress = progress * (2 - progress);
-            var angle = rotations * 30 * easedProgress;
-
-            // Cap the slow down
-            if (progress > 0.9) {
-                angle += (timePassed % 1000) / 1000 * 30; // Slow down
+        setTimeout(function() {
+            coin.style.transition = "none"; // Stop spinning
+            if (event.key === "h" || event.key === "H") {
+                result.innerHTML = "Heads";
+            } else if (event.key === "t" || event.key === "T") {
+                result.innerHTML = "Tails";
             }
-            
-            coin.style.transform = "rotateY(" + angle + "deg)";
+        }, 4000);
+    }
 
-            if (timePassed >= duration) {
-                clearInterval(interval);
-                coin.style.transition = "transform 0.2s linear"; // Enable smooth stop
-                var finalRotation;
-                if (event.key === "h" || event.key === "H") {
-                    finalRotation = 1440;
-                    result.innerHTML = "Heads";
-                } else if (event.key === "t" || event.key === "T") {
-                    finalRotation = 1620;
-                    result.innerHTML = "Tails";
-                } else if (event.key === "r" || event.key === "R") {
-                    if (Math.random() < 0.5) {
-                        finalRotation = 1440;
-                        result.innerHTML = "Heads";
-                    } else {
-                        finalRotation = 1620;
-                        result.innerHTML = "Tails";
-                    }
-                }
-                coin.style.transform = "rotateY(" + finalRotation + "deg)";
+    if (event.key === "r" || event.key === "R") {
+        coin.style.transition = "transform 4s ease-out";
+        var randomRotation = Math.random() < 0.5 ? 1440 : 1620; // Random 50/50 chance for Heads or Tails
+        coin.style.transform = "rotateY(" + randomRotation + "deg)"; // Rotate for 4 seconds
+
+        result.innerHTML = ""; // Clear result until coin stops spinning
+
+        setTimeout(function() {
+            coin.style.transition = "none"; // Stop spinning
+            if (randomRotation === 1440) {
+                result.innerHTML = "Heads";
+            } else {
+                result.innerHTML = "Tails";
             }
-        }, 50);
+        }, 4000);
     }
 });
 
