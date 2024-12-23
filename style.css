@@ -36,7 +36,7 @@ body {
     position: relative;
     margin: 20px auto;
     transform-style: preserve-3d;
-    transition: transform 4s linear;
+    transition: transform 0.2s linear;
 }
 
 .side {
