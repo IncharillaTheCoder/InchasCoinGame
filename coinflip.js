@@ -9,33 +9,24 @@ document.addEventListener("keydown", function(event) {
         titleInput.focus();
     }
 
-    if (event.key === "h" || event.key === "H" || event.key === "t" || event.key === "T") {
+    if (["h", "H", "t", "T", "r", "R"].includes(event.key)) {
         coin.style.transition = "transform 4s ease-out";
-        var finalRotation = (event.key === "h" || event.key === "H") ? 1440 : 1620;
+        let finalRotation;
+        if (event.key === "h" || event.key === "H") {
+            finalRotation = 1440;
+        } else if (event.key === "t" || event.key === "T") {
+            finalRotation = 1620;
+        } else if (event.key === "r" || event.key === "R") {
+            finalRotation = Math.random() < 0.5 ? 1440 : 1620; // Random 50/50 chance for Heads or Tails
+        }
+
         coin.style.transform = "rotateY(" + finalRotation + "deg)"; // Rotate for 4 seconds
 
         result.innerHTML = ""; // Clear result until coin stops spinning
 
         setTimeout(function() {
-            coin.style.transition = "none"; // Stop spinning
-            if (event.key === "h" || event.key === "H") {
-                result.innerHTML = "Heads";
-            } else if (event.key === "t" || event.key === "T") {
-                result.innerHTML = "Tails";
-            }
-        }, 4000);
-    }
-
-    if (event.key === "r" || event.key === "R") {
-        coin.style.transition = "transform 4s ease-out";
-        var randomRotation = Math.random() < 0.5 ? 1440 : 1620; // Random 50/50 chance for Heads or Tails
-        coin.style.transform = "rotateY(" + randomRotation + "deg)"; // Rotate for 4 seconds
-
-        result.innerHTML = ""; // Clear result until coin stops spinning
-
-        setTimeout(function() {
-            coin.style.transition = "none"; // Stop spinning
-            if (randomRotation === 1440) {
+            coin.style.transition = "none"; // Disable transition to reset
+            if (finalRotation === 1440) {
                 result.innerHTML = "Heads";
             } else {
                 result.innerHTML = "Tails";
