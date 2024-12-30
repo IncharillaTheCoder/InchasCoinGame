@@ -32,16 +32,14 @@ document.addEventListener("keydown", function(event) {
 
             setTimeout(function() {
                 coin.style.transition = "none"; // Disable transition to reset
+                result.style.opacity = 0; // Hide result initially
                 if (finalRotation === 1440) {
                     result.innerHTML = "Heads";
                 } else {
                     result.innerHTML = "Tails";
                 }
-                // Add the fade-in animation to the result
-                result.style.opacity = 0;
-                setTimeout(function() {
-                    result.style.opacity = 1;
-                }, 10);
+                // Trigger the fade-in animation
+                result.style.opacity = 1;
             }, 4000);
         }, 50);
     }
