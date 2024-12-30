@@ -37,6 +37,11 @@ document.addEventListener("keydown", function(event) {
                 } else {
                     result.innerHTML = "Tails";
                 }
+                // Add the fade-in animation to the result
+                result.style.opacity = 0;
+                setTimeout(function() {
+                    result.style.opacity = 1;
+                }, 10);
             }, 4000);
         }, 50);
     }
