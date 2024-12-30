@@ -84,7 +84,7 @@ button:hover {
     animation: fadeIn 2s ease-in-out;
 }
 
-#result {
+#resultContainer {
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
